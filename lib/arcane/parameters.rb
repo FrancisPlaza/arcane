@@ -9,11 +9,10 @@ module Arcane
       attr_accessor :user, :object, :action
 
       def dup
-        self.class.new(self.deep_dup).tap do |duplicate|
+        self.class.new(@parameters.deep_dup).tap do |duplicate|
           duplicate.user = user
           duplicate.object = object
           duplicate.action = action
-          duplicate.default = default
           duplicate.permitted = @permitted
         end
       end
